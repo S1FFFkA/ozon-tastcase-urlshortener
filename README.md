@@ -50,6 +50,8 @@ make logs
 
 `POST /shrt/links`
 
+` POST http://localhost:8080/shrt/links`
+
 Request:
 
 ```json
@@ -70,6 +72,8 @@ Response `201`:
 
 `GET /shrt/links/:code`
 
+` GET http://localhost:8080/shrt/links/:code`
+
 пример : `GET /shrt/links/Abc123_abc`
 
 Response `200`:
@@ -83,6 +87,8 @@ Response `200`:
 ### 3) Редирект по коду
 
 `GET /shrt/:code`
+
+` GET http://localhost:8080/shrt/:code`
 
 пример : `GET /shrt/Abc123_abc`
 
