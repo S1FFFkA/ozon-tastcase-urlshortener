@@ -1,0 +1,11 @@
+.git
+.gitignore
+.idea
+.cursor
+*.md
+*.log
+logs
+tmp
+bin
+dist
+.env
