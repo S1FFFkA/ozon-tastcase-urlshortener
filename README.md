@@ -12,6 +12,38 @@
   - `memory`
 - Ежедневная cleanup-задача (по умолчанию в `03:00`), удаляющая старые ссылки(по умолчанию те, что не использовались 3 года).
 
+## Запуск
+### Создайте .env в корне проекта и скопируйте туда .env/example
+### Запустить Docker 
+### Запустить команду в корне проекта 
+
+```bash
+docker compose up --build
+```
+
+## Команды Makefile
+
+```bash
+make test
+make test-integration
+make db-up
+make docker-up
+make docker-up-d
+make docker-down
+make docker-reset
+make logs
+```
+
+- `make test` — запуск всех unit-тестов проекта.
+- `make test-integration` — запуск integration-тестов репозитория с тегом `integration`. (требуется поднятая бд)
+- `make db-up` — поднять только контейнер Postgres в фоне.
+- `make docker-up` — собрать и запустить все сервисы `docker compose` в foreground.
+- `make docker-up-d` — собрать и запустить все сервисы `docker compose` в фоне.
+- `make docker-down` — остановить и удалить контейнеры/сеть (без удаления volume).
+- `make docker-reset` — остановить и удалить контейнеры/сеть/volume (полный сброс данных БД).
+- `make logs` — смотреть логи `app` и `db` в режиме follow.
+
+
 ## API
 
 ### 1) Создать короткую ссылку
@@ -125,14 +157,6 @@ Response:
 - `HTTP_ADDR` — адрес сервера, например `:8080`
 - `BASE_URL` — публичный base URL для формирования `short_url`
 - `STORAGE` — указывайте `postgres` или `memory` в зависимости от ваших потребностей
-
-## Запуск
-### Создайте .env в корне проекта и скопируйте туда .env/example
-### Docker Compose
-
-```bash
-docker compose up --build
-```
 
 
 ## Тесты
